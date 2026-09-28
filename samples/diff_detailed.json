@@ -1,7 +1,7 @@
 [
    {
       "op": "add",
-      "path_base": "/nested-feature",
+      "path_base": "",
       "path_compare": "/nested-feature",
       "value_compare": {
          "config": {

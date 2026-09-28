@@ -73,7 +73,7 @@ def diff_obj(
         {
             "op": "remove",
             "path_base": f"{base_pointer}/{k}",
-            "path_compare": f"{compare_pointer}/{k}",
+            "path_compare": f"{compare_pointer}",
             "value_base": base[k],
         }
         for k in set(base.keys()) - set(compare.keys())
@@ -81,7 +81,7 @@ def diff_obj(
     additions: list[dict[str, Any]] = [
         {
             "op": "add",
-            "path_base": f"{base_pointer}/{k}",
+            "path_base": f"{base_pointer}",
             "path_compare": f"{compare_pointer}/{k}",
             "value_compare": compare[k],
         }
