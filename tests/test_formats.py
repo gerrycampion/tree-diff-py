@@ -15,6 +15,9 @@ from tree_diff import (  # noqa: E402
     diff_json,
     diff_xml,
 )
+from tree_diff.csv_mapping import CSVMapping  # noqa: E402
+from tree_diff.json_mapping import JSONMapping  # noqa: E402
+from tree_diff.xml_mapping import XMLMapping  # noqa: E402
 
 SAMPLES_DIR = ROOT / "samples"
 
@@ -138,3 +141,54 @@ def test_json_mapping_escapes_json_pointer_segments():
 
     assert diffs[0]["path_base"] == "/a~1b~0c"
     assert diffs[0]["path_compare"] == "/a~1b~0c"
+
+
+def test_json_path_to_range_locates_nested_value():
+    source = '{"nested":{"items":["first","second"]}}'
+    start = source.index('"second"')
+
+    assert JSONMapping().path_to_range(source, "/nested/items/1") == (
+        start,
+        start + len('"second"'),
+    )
+
+
+def test_path_to_range_uses_utf16_offsets_for_ace():
+    source = '{"emoji":"😀","target":1}'
+    start = len(source[: source.index("1")].encode("utf-16-le")) // 2
+
+    assert JSONMapping().path_to_range(source, "/target") == (start, start + 1)
+
+
+def test_xml_path_to_range_locates_attribute_and_text():
+    source = '<root><item id="a">First</item><item id="b">Second</item></root>'
+    mapping = XMLMapping()
+
+    assert mapping.path_to_range(source, "/root/item[2]/@id") == (
+        source.index('"b"'),
+        source.index('"b"') + 3,
+    )
+    assert mapping.path_to_range(source, "/root/item[2]/text()") == (
+        source.index("Second"),
+        source.index("Second") + len("Second"),
+    )
+
+
+def test_csv_path_to_range_locates_quoted_cell():
+    source = 'name,value\nalpha,"two, words"\n'
+    start = source.index('"two, words"')
+
+    assert CSVMapping().path_to_range(source, "1,value") == (
+        start,
+        start + len('"two, words"'),
+    )
+
+
+def test_csv_path_to_range_preserves_bom_offsets_and_escaped_headers():
+    source = '\ufeff"name","a""b"\nalpha,1\n'
+    start = source.index('"a""b"')
+
+    assert CSVMapping().path_to_range(source, 'a"b') == (
+        start,
+        start + len('"a""b"'),
+    )

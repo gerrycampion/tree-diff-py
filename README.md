@@ -204,6 +204,9 @@ csv_diffs = diff_csv(
 
 `diff_json`, `diff_xml`, and `diff_csv` are format-specific entry points over the
 same tree diff engine. JSON paths use JSON Pointer escaping.
+Each mapping also implements `path_to_range(source, path)`, returning zero-based,
+end-exclusive UTF-16 source offsets using that format's path syntax, matching Ace's
+editor coordinates.
 
 For file inputs, `diff_files` selects the mapping from each filename extension and
 loads each file using that mapping's loader. Both files must use the same format.

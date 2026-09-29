@@ -1,9 +1,18 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, ClassVar, Literal
+from typing import Any, ClassVar, Literal, TypeAlias
 
 NodeKind = Literal["array", "object", "scalar"]
+SourceRange: TypeAlias = tuple[int, int]
+
+
+def to_utf16_range(source: str, source_range: SourceRange | None) -> SourceRange | None:
+    if source_range is None:
+        return None
+    return tuple(
+        len(source[:offset].encode("utf-16-le")) // 2 for offset in source_range
+    )
 
 
 @dataclass
@@ -35,4 +44,13 @@ class TreeMapping(ABC):
 
     @abstractmethod
     def child_path(self, path: str, parent: TreeNode, key: str) -> str:
+        raise NotImplementedError
+
+    def path_to_range(self, source: str, path: str) -> SourceRange | None:
+        """Return a zero-based, end-exclusive UTF-16 range for a diff path."""
+        return to_utf16_range(source, self._path_to_range(source, path))
+
+    @abstractmethod
+    def _path_to_range(self, source: str, path: str) -> SourceRange | None:
+        """Return a zero-based, end-exclusive Python string range."""
         raise NotImplementedError
