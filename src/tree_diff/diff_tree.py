@@ -119,7 +119,7 @@ def _diff_array(
                 base,
                 str(stringified_base[item][0]),
             ),
-            "path_compare": compare_path,
+            "path_compare": mapping.array_parent_path(compare_path, compare),
             "value_base": stringified_base[item][1].to_value(),
         }
         for item in base_keys
@@ -127,7 +127,7 @@ def _diff_array(
     additions = [
         {
             "op": "add",
-            "path_base": base_path,
+            "path_base": mapping.array_parent_path(base_path, base),
             "path_compare": mapping.child_path(
                 compare_path,
                 compare,

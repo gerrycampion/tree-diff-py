@@ -6,7 +6,7 @@
    },
    {
       "op": "add",
-      "path_base": "/configuration/tags[1]/tag",
+      "path_base": "/configuration/tags[1]",
       "path_compare": "/configuration/tags[1]/tag[5]"
    },
    {
@@ -52,7 +52,7 @@
    {
       "op": "remove",
       "path_base": "/configuration/features[1]/feature[4]",
-      "path_compare": "/configuration/features[1]/feature"
+      "path_compare": "/configuration/features[1]"
    },
    {
       "op": "replace",

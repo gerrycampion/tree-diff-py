@@ -46,6 +46,9 @@ class TreeMapping(ABC):
     def child_path(self, path: str, parent: TreeNode, key: str) -> str:
         raise NotImplementedError
 
+    def array_parent_path(self, path: str, parent: TreeNode) -> str:
+        return path
+
     def path_to_range(self, source: str, path: str) -> SourceRange | None:
         """Return a zero-based, end-exclusive UTF-16 range for a diff path."""
         return to_utf16_range(source, self._path_to_range(source, path))

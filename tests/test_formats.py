@@ -88,6 +88,23 @@ def test_xml_diff_indexes_repeated_siblings():
     }
 
 
+def test_xml_diff_add_uses_enclosing_element_for_missing_side():
+    diffs = diff_xml(
+        NgramListMatcher,
+        "<root><tags><tag>A</tag></tags></root>",
+        "<root><tags><tag>A</tag><tag>B</tag></tags></root>",
+    )
+
+    assert diffs == [
+        {
+            "op": "add",
+            "path_base": "/root/tags[1]",
+            "path_compare": "/root/tags[1]/tag[2]",
+            "value_compare": {"#text": "B"},
+        }
+    ]
+
+
 def test_csv_diff_uses_row_and_column_paths():
     diffs = diff_csv(
         NgramListMatcher,

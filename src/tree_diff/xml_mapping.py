@@ -70,6 +70,12 @@ class XMLMapping(TreeMapping):
             return f"{path}/text()"
         return f"{path}/{key}"
 
+    def array_parent_path(self, path: str, parent: TreeNode) -> str:
+        if parent.segment is None:
+            return path
+        suffix = f"/{parent.segment}"
+        return path[: -len(suffix)] if path.endswith(suffix) else path
+
     def _path_to_range(self, source: str, path: str) -> SourceRange | None:
         if not path.startswith("/"):
             return None
