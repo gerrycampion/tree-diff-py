@@ -1,18 +1,32 @@
 """tree-diff-py package."""
 
 from .base_list_matcher import BaseListMatcher
-from .diff_json import DiffNode, diff_obj
-from .json_loader import load_from_file, save_to_file
+from .csv_mapping import CSVMapping
+from .diff_formats import TreeMappingFactory, diff_csv, diff_files, diff_json, diff_xml
+from .diff_tree import TreeDiffContext, diff_tree
+from .report import save_to_file
+from .json_mapping import JSONMapping
 from .ngram_list_matcher import NgramListMatcher
 from .quick_ratio_list_matcher import QRListMatcher
+from .tree import TreeMapping, TreeNode
+from .xml_mapping import XMLMapping
 
 __all__ = [
     "BaseListMatcher",
-    "DiffNode",
+    "CSVMapping",
+    "JSONMapping",
     "NgramListMatcher",
     "QRListMatcher",
-    "diff_obj",
-    "load_from_file",
+    "TreeMapping",
+    "TreeMappingFactory",
+    "TreeDiffContext",
+    "TreeNode",
+    "XMLMapping",
+    "diff_csv",
+    "diff_files",
+    "diff_json",
+    "diff_tree",
+    "diff_xml",
     "save_to_file",
 ]
 

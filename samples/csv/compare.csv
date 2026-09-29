@@ -1,0 +1,19 @@
+section,name,enabled,timeout,mode,value
+project,name,,,,demo
+project,status,,,,published
+owner,name,,,,Alex
+owner,team,,,,platform-ops
+tag,backend,,,,
+tag,release,,,,
+tag,urgent,,,,
+tag,api,,,,
+tag,security,,,,
+feature,authentication,true,45,basic,
+feature,billing,true,10,legacy,
+feature,search,true,25,full,
+standalone-feature,nested-feature,true,10,full,
+team,security,,,,
+team,platform,,,,
+team,data,,,,
+metadata,version,,,,2
+metadata,notes,,,,keep this

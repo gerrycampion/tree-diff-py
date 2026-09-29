@@ -1,0 +1,18 @@
+section,name,enabled,timeout,mode,value
+project,name,,,,demo
+project,status,,,,draft
+owner,name,,,,Alex
+owner,team,,,,platform
+tag,urgent,,,,
+tag,backend,,,,
+tag,release,,,,
+tag,api,,,,
+feature,authentication,true,30,basic,
+feature,search,true,15,full,
+feature,billing,false,10,legacy,
+feature,nested-feature,true,10,full,
+team,platform,,,,
+team,data,,,,
+team,security,,,,
+metadata,version,,,,1
+metadata,notes,,,,keep this

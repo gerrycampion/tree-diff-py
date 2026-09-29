@@ -1,0 +1,87 @@
+[
+   {
+      "op": "add",
+      "path_base": "/configuration",
+      "path_compare": "/configuration/nested-feature"
+   },
+   {
+      "op": "add",
+      "path_base": "/configuration/tags[1]/tag",
+      "path_compare": "/configuration/tags[1]/tag[5]"
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/features[1]/feature[2]",
+      "path_compare": "/configuration/features[1]/feature[3]"
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/features[1]/feature[3]",
+      "path_compare": "/configuration/features[1]/feature[2]"
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/tags[1]/tag[1]",
+      "path_compare": "/configuration/tags[1]/tag[3]"
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/tags[1]/tag[2]",
+      "path_compare": "/configuration/tags[1]/tag[1]"
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/tags[1]/tag[3]",
+      "path_compare": "/configuration/tags[1]/tag[2]"
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/teams[1]/team[1]",
+      "path_compare": "/configuration/teams[1]/team[2]"
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/teams[1]/team[2]",
+      "path_compare": "/configuration/teams[1]/team[3]"
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/teams[1]/team[3]",
+      "path_compare": "/configuration/teams[1]/team[1]"
+   },
+   {
+      "op": "remove",
+      "path_base": "/configuration/features[1]/feature[4]",
+      "path_compare": "/configuration/features[1]/feature"
+   },
+   {
+      "op": "replace",
+      "path_base": "/configuration/@status",
+      "path_compare": "/configuration/@status"
+   },
+   {
+      "op": "replace",
+      "path_base": "/configuration/features[1]/feature[1]/config[1]/@timeout",
+      "path_compare": "/configuration/features[1]/feature[1]/config[1]/@timeout"
+   },
+   {
+      "op": "replace",
+      "path_base": "/configuration/features[1]/feature[2]/config[1]/@timeout",
+      "path_compare": "/configuration/features[1]/feature[3]/config[1]/@timeout"
+   },
+   {
+      "op": "replace",
+      "path_base": "/configuration/features[1]/feature[3]/@enabled",
+      "path_compare": "/configuration/features[1]/feature[2]/@enabled"
+   },
+   {
+      "op": "replace",
+      "path_base": "/configuration/metadata[1]/@version",
+      "path_compare": "/configuration/metadata[1]/@version"
+   },
+   {
+      "op": "replace",
+      "path_base": "/configuration/owner[1]/@team",
+      "path_compare": "/configuration/owner[1]/@team"
+   }
+]

@@ -1,5 +1,5 @@
 from collections.abc import Iterable
-from json import dump, load
+from json import dump
 from typing import Any
 
 
@@ -13,11 +13,6 @@ def _strip_diff_values(obj: Any, keep: Iterable[str] | None = None) -> Any:
             key: value for key, value in obj.items() if not keep_set or key in keep_set
         }
     return obj
-
-
-def load_from_file(filename: str) -> Any:
-    with open(filename, encoding="utf-8") as fp:
-        return load(fp)
 
 
 def save_to_file(obj: Any, filename: str, keep: Iterable[str] | None = None) -> None:

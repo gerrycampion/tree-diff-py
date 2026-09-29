@@ -1,0 +1,295 @@
+[
+   {
+      "op": "add",
+      "path_base": "",
+      "path_compare": "9",
+      "value_compare": {
+         "enabled": "",
+         "mode": "",
+         "name": "security",
+         "section": "tag",
+         "timeout": "",
+         "value": ""
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "10",
+      "path_compare": "12",
+      "value_base": {
+         "enabled": "true",
+         "mode": "full",
+         "name": "search",
+         "section": "feature",
+         "timeout": "15",
+         "value": ""
+      },
+      "value_compare": {
+         "enabled": "true",
+         "mode": "full",
+         "name": "search",
+         "section": "feature",
+         "timeout": "25",
+         "value": ""
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "12",
+      "path_compare": "13",
+      "value_base": {
+         "enabled": "true",
+         "mode": "full",
+         "name": "nested-feature",
+         "section": "feature",
+         "timeout": "10",
+         "value": ""
+      },
+      "value_compare": {
+         "enabled": "true",
+         "mode": "full",
+         "name": "nested-feature",
+         "section": "standalone-feature",
+         "timeout": "10",
+         "value": ""
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "13",
+      "path_compare": "15",
+      "value_base": {
+         "enabled": "",
+         "mode": "",
+         "name": "platform",
+         "section": "team",
+         "timeout": "",
+         "value": ""
+      },
+      "value_compare": {
+         "enabled": "",
+         "mode": "",
+         "name": "platform",
+         "section": "team",
+         "timeout": "",
+         "value": ""
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "14",
+      "path_compare": "16",
+      "value_base": {
+         "enabled": "",
+         "mode": "",
+         "name": "data",
+         "section": "team",
+         "timeout": "",
+         "value": ""
+      },
+      "value_compare": {
+         "enabled": "",
+         "mode": "",
+         "name": "data",
+         "section": "team",
+         "timeout": "",
+         "value": ""
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "15",
+      "path_compare": "14",
+      "value_base": {
+         "enabled": "",
+         "mode": "",
+         "name": "security",
+         "section": "team",
+         "timeout": "",
+         "value": ""
+      },
+      "value_compare": {
+         "enabled": "",
+         "mode": "",
+         "name": "security",
+         "section": "team",
+         "timeout": "",
+         "value": ""
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "16",
+      "path_compare": "17",
+      "value_base": {
+         "enabled": "",
+         "mode": "",
+         "name": "version",
+         "section": "metadata",
+         "timeout": "",
+         "value": "1"
+      },
+      "value_compare": {
+         "enabled": "",
+         "mode": "",
+         "name": "version",
+         "section": "metadata",
+         "timeout": "",
+         "value": "2"
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "17",
+      "path_compare": "18",
+      "value_base": {
+         "enabled": "",
+         "mode": "",
+         "name": "notes",
+         "section": "metadata",
+         "timeout": "",
+         "value": "keep this"
+      },
+      "value_compare": {
+         "enabled": "",
+         "mode": "",
+         "name": "notes",
+         "section": "metadata",
+         "timeout": "",
+         "value": "keep this"
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "5",
+      "path_compare": "7",
+      "value_base": {
+         "enabled": "",
+         "mode": "",
+         "name": "urgent",
+         "section": "tag",
+         "timeout": "",
+         "value": ""
+      },
+      "value_compare": {
+         "enabled": "",
+         "mode": "",
+         "name": "urgent",
+         "section": "tag",
+         "timeout": "",
+         "value": ""
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "6",
+      "path_compare": "5",
+      "value_base": {
+         "enabled": "",
+         "mode": "",
+         "name": "backend",
+         "section": "tag",
+         "timeout": "",
+         "value": ""
+      },
+      "value_compare": {
+         "enabled": "",
+         "mode": "",
+         "name": "backend",
+         "section": "tag",
+         "timeout": "",
+         "value": ""
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "7",
+      "path_compare": "6",
+      "value_base": {
+         "enabled": "",
+         "mode": "",
+         "name": "release",
+         "section": "tag",
+         "timeout": "",
+         "value": ""
+      },
+      "value_compare": {
+         "enabled": "",
+         "mode": "",
+         "name": "release",
+         "section": "tag",
+         "timeout": "",
+         "value": ""
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "9",
+      "path_compare": "10",
+      "value_base": {
+         "enabled": "true",
+         "mode": "basic",
+         "name": "authentication",
+         "section": "feature",
+         "timeout": "30",
+         "value": ""
+      },
+      "value_compare": {
+         "enabled": "true",
+         "mode": "basic",
+         "name": "authentication",
+         "section": "feature",
+         "timeout": "45",
+         "value": ""
+      }
+   },
+   {
+      "op": "replace",
+      "path_base": "10,timeout",
+      "path_compare": "12,timeout",
+      "value_base": "15",
+      "value_compare": "25"
+   },
+   {
+      "op": "replace",
+      "path_base": "11,enabled",
+      "path_compare": "11,enabled",
+      "value_base": "false",
+      "value_compare": "true"
+   },
+   {
+      "op": "replace",
+      "path_base": "12,section",
+      "path_compare": "13,section",
+      "value_base": "feature",
+      "value_compare": "standalone-feature"
+   },
+   {
+      "op": "replace",
+      "path_base": "16,value",
+      "path_compare": "17,value",
+      "value_base": "1",
+      "value_compare": "2"
+   },
+   {
+      "op": "replace",
+      "path_base": "2,value",
+      "path_compare": "2,value",
+      "value_base": "draft",
+      "value_compare": "published"
+   },
+   {
+      "op": "replace",
+      "path_base": "4,value",
+      "path_compare": "4,value",
+      "value_base": "platform",
+      "value_compare": "platform-ops"
+   },
+   {
+      "op": "replace",
+      "path_base": "9,timeout",
+      "path_compare": "10,timeout",
+      "value_base": "30",
+      "value_compare": "45"
+   }
+]

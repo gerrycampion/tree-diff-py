@@ -1,6 +1,6 @@
 # tree-diff-py
 
-Utilities for diffing nested JSON-like structures and matching list items.
+Utilities for diffing tree-like (JSON, XML) and tabular (CSV) data and matching list items.
 
 ## Installation
 
@@ -18,7 +18,9 @@ pre-commit install
 
 ## How it works
 
-The library takes a recursive approach to diffing JSON-like data structures.
+The library maps each supported input format to a shared tree representation, then
+uses one recursive diff algorithm for all formats. Format mappings define how their
+paths are written.
 
 ### 1. Recursive value diffing
 
@@ -127,7 +129,7 @@ The diff records list moves and the added item `"security"` instead of treating 
 
 ### 4. Example from the sample data
 
-The sample files in `samples/base.json` and `samples/compare.json` demonstrate several common cases:
+The sample files in `samples/json/base.json` and `samples/json/compare.json` demonstrate several common cases:
 
 - scalar change: `status` from `draft` to `published`
 - nested field change: `owner.team` from `platform` to `platform-ops`
@@ -135,6 +137,10 @@ The sample files in `samples/base.json` and `samples/compare.json` demonstrate s
 - matched object updates: `search` and `billing` entries are paired by similarity even when indices shift
 - added item: `security` appears in the compare list
 - removed item: a nested feature appears in the base but not in the compare
+
+The XML and CSV equivalents are in `samples/xml/` and `samples/csv/`. Each format
+directory contains `base`, `compare`, and its `diff_paths.json`, `diff_summary.json`,
+and `diff_detailed.json` outputs.
 
 A typical output looks like:
 
@@ -153,17 +159,64 @@ A typical output looks like:
 import json
 from pathlib import Path
 
-from tree_diff.diff_json import DiffNode, diff_value
-from tree_diff.ngram_list_matcher import NgramListMatcher
+from tree_diff import NgramListMatcher, diff_json
 
-base = json.loads(Path("samples/base.json").read_text())
-compare = json.loads(Path("samples/compare.json").read_text())
+base = json.loads(Path("samples/json/base.json").read_text())
+compare = json.loads(Path("samples/json/compare.json").read_text())
 
-diffs = diff_value(NgramListMatcher, DiffNode(base, compare))
+diffs = diff_json(NgramListMatcher, base, compare)
 print(diffs)
 ```
 
 This will return a sequence of diff records describing the semantic changes between the two JSON structures.
+
+## XML and CSV
+
+`diff_xml` accepts XML text, an `xml.etree.ElementTree` element/tree, or a `Path` to
+an XML file. It maps elements, attributes, and trimmed direct text into the shared
+tree. Repeated sibling elements are matched as lists. Paths use XPath-style element
+and attribute segments, such as `/catalog/item[2]/@id` and
+`/catalog/item[1]/text()`.
+
+`diff_csv` accepts CSV text or a `Path` to a CSV file. The first record supplies
+column names and each subsequent record is a row; cell values remain strings.
+Column names must be unique and each row must have the header's field count. CSV
+paths use `r,c`, where `r` is the one-based row number and `c` is the column name.
+A whole row is addressed by `r`; the whole document has an empty path. Header changes
+use the affected column name as the path.
+
+```python
+from pathlib import Path
+
+from tree_diff import NgramListMatcher, diff_csv, diff_xml
+
+xml_diffs = diff_xml(
+    NgramListMatcher,
+    "<catalog><item id='a'>First</item></catalog>",
+    "<catalog><item id='a'>Updated</item></catalog>",
+)
+csv_diffs = diff_csv(
+    NgramListMatcher,
+    Path("before.csv"),
+    Path("after.csv"),
+)
+```
+
+`diff_json`, `diff_xml`, and `diff_csv` are format-specific entry points over the
+same tree diff engine. JSON paths use JSON Pointer escaping.
+
+For file inputs, `diff_files` selects the mapping from each filename extension and
+loads each file using that mapping's loader. Both files must use the same format.
+
+```python
+from tree_diff import NgramListMatcher, diff_files
+
+diffs = diff_files(
+    NgramListMatcher,
+    "samples/xml/base.xml",
+    "samples/xml/compare.xml",
+)
+```
 
 ## Runtime performance
 

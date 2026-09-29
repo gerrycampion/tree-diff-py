@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration project="demo" status="draft">
+  <owner name="Alex" team="platform" />
+  <tags>
+    <tag>urgent</tag>
+    <tag>backend</tag>
+    <tag>release</tag>
+    <tag>api</tag>
+  </tags>
+  <features>
+    <feature name="authentication" enabled="true">
+      <config timeout="30" mode="basic" />
+    </feature>
+    <feature name="search" enabled="true">
+      <config timeout="15" mode="full" />
+    </feature>
+    <feature name="billing" enabled="false">
+      <config timeout="10" mode="legacy" />
+    </feature>
+    <feature name="nested-feature" enabled="true">
+      <config timeout="10" mode="full" />
+    </feature>
+  </features>
+  <teams>
+    <team>platform</team>
+    <team>data</team>
+    <team>security</team>
+  </teams>
+  <metadata version="1">
+    <notes>keep this</notes>
+  </metadata>
+</configuration>

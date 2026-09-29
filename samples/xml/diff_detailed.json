@@ -1,0 +1,200 @@
+[
+   {
+      "op": "add",
+      "path_base": "/configuration",
+      "path_compare": "/configuration/nested-feature",
+      "value_compare": [
+         {
+            "@enabled": "true",
+            "@name": "nested-feature",
+            "config": [
+               {
+                  "@mode": "full",
+                  "@timeout": "10"
+               }
+            ]
+         }
+      ]
+   },
+   {
+      "op": "add",
+      "path_base": "/configuration/tags[1]/tag",
+      "path_compare": "/configuration/tags[1]/tag[5]",
+      "value_compare": {
+         "#text": "security"
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/features[1]/feature[2]",
+      "path_compare": "/configuration/features[1]/feature[3]",
+      "value_base": {
+         "@enabled": "true",
+         "@name": "search",
+         "config": [
+            {
+               "@mode": "full",
+               "@timeout": "15"
+            }
+         ]
+      },
+      "value_compare": {
+         "@enabled": "true",
+         "@name": "search",
+         "config": [
+            {
+               "@mode": "full",
+               "@timeout": "25"
+            }
+         ]
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/features[1]/feature[3]",
+      "path_compare": "/configuration/features[1]/feature[2]",
+      "value_base": {
+         "@enabled": "false",
+         "@name": "billing",
+         "config": [
+            {
+               "@mode": "legacy",
+               "@timeout": "10"
+            }
+         ]
+      },
+      "value_compare": {
+         "@enabled": "true",
+         "@name": "billing",
+         "config": [
+            {
+               "@mode": "legacy",
+               "@timeout": "10"
+            }
+         ]
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/tags[1]/tag[1]",
+      "path_compare": "/configuration/tags[1]/tag[3]",
+      "value_base": {
+         "#text": "urgent"
+      },
+      "value_compare": {
+         "#text": "urgent"
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/tags[1]/tag[2]",
+      "path_compare": "/configuration/tags[1]/tag[1]",
+      "value_base": {
+         "#text": "backend"
+      },
+      "value_compare": {
+         "#text": "backend"
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/tags[1]/tag[3]",
+      "path_compare": "/configuration/tags[1]/tag[2]",
+      "value_base": {
+         "#text": "release"
+      },
+      "value_compare": {
+         "#text": "release"
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/teams[1]/team[1]",
+      "path_compare": "/configuration/teams[1]/team[2]",
+      "value_base": {
+         "#text": "platform"
+      },
+      "value_compare": {
+         "#text": "platform"
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/teams[1]/team[2]",
+      "path_compare": "/configuration/teams[1]/team[3]",
+      "value_base": {
+         "#text": "data"
+      },
+      "value_compare": {
+         "#text": "data"
+      }
+   },
+   {
+      "op": "move",
+      "path_base": "/configuration/teams[1]/team[3]",
+      "path_compare": "/configuration/teams[1]/team[1]",
+      "value_base": {
+         "#text": "security"
+      },
+      "value_compare": {
+         "#text": "security"
+      }
+   },
+   {
+      "op": "remove",
+      "path_base": "/configuration/features[1]/feature[4]",
+      "path_compare": "/configuration/features[1]/feature",
+      "value_base": {
+         "@enabled": "true",
+         "@name": "nested-feature",
+         "config": [
+            {
+               "@mode": "full",
+               "@timeout": "10"
+            }
+         ]
+      }
+   },
+   {
+      "op": "replace",
+      "path_base": "/configuration/@status",
+      "path_compare": "/configuration/@status",
+      "value_base": "draft",
+      "value_compare": "published"
+   },
+   {
+      "op": "replace",
+      "path_base": "/configuration/features[1]/feature[1]/config[1]/@timeout",
+      "path_compare": "/configuration/features[1]/feature[1]/config[1]/@timeout",
+      "value_base": "30",
+      "value_compare": "45"
+   },
+   {
+      "op": "replace",
+      "path_base": "/configuration/features[1]/feature[2]/config[1]/@timeout",
+      "path_compare": "/configuration/features[1]/feature[3]/config[1]/@timeout",
+      "value_base": "15",
+      "value_compare": "25"
+   },
+   {
+      "op": "replace",
+      "path_base": "/configuration/features[1]/feature[3]/@enabled",
+      "path_compare": "/configuration/features[1]/feature[2]/@enabled",
+      "value_base": "false",
+      "value_compare": "true"
+   },
+   {
+      "op": "replace",
+      "path_base": "/configuration/metadata[1]/@version",
+      "path_compare": "/configuration/metadata[1]/@version",
+      "value_base": "1",
+      "value_compare": "2"
+   },
+   {
+      "op": "replace",
+      "path_base": "/configuration/owner[1]/@team",
+      "path_compare": "/configuration/owner[1]/@team",
+      "value_base": "platform",
+      "value_compare": "platform-ops"
+   }
+]

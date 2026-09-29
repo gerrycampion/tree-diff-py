@@ -1,0 +1,97 @@
+[
+   {
+      "op": "add",
+      "path_base": "",
+      "path_compare": "9"
+   },
+   {
+      "op": "move",
+      "path_base": "10",
+      "path_compare": "12"
+   },
+   {
+      "op": "move",
+      "path_base": "12",
+      "path_compare": "13"
+   },
+   {
+      "op": "move",
+      "path_base": "13",
+      "path_compare": "15"
+   },
+   {
+      "op": "move",
+      "path_base": "14",
+      "path_compare": "16"
+   },
+   {
+      "op": "move",
+      "path_base": "15",
+      "path_compare": "14"
+   },
+   {
+      "op": "move",
+      "path_base": "16",
+      "path_compare": "17"
+   },
+   {
+      "op": "move",
+      "path_base": "17",
+      "path_compare": "18"
+   },
+   {
+      "op": "move",
+      "path_base": "5",
+      "path_compare": "7"
+   },
+   {
+      "op": "move",
+      "path_base": "6",
+      "path_compare": "5"
+   },
+   {
+      "op": "move",
+      "path_base": "7",
+      "path_compare": "6"
+   },
+   {
+      "op": "move",
+      "path_base": "9",
+      "path_compare": "10"
+   },
+   {
+      "op": "replace",
+      "path_base": "10,timeout",
+      "path_compare": "12,timeout"
+   },
+   {
+      "op": "replace",
+      "path_base": "11,enabled",
+      "path_compare": "11,enabled"
+   },
+   {
+      "op": "replace",
+      "path_base": "12,section",
+      "path_compare": "13,section"
+   },
+   {
+      "op": "replace",
+      "path_base": "16,value",
+      "path_compare": "17,value"
+   },
+   {
+      "op": "replace",
+      "path_base": "2,value",
+      "path_compare": "2,value"
+   },
+   {
+      "op": "replace",
+      "path_base": "4,value",
+      "path_compare": "4,value"
+   },
+   {
+      "op": "replace",
+      "path_base": "9,timeout",
+      "path_compare": "10,timeout"
+   }
+]
