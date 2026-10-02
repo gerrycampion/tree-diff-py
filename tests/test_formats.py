@@ -201,6 +201,15 @@ def test_csv_path_to_range_locates_quoted_cell():
     )
 
 
+def test_csv_path_to_range_empty_selects_entire_table():
+    source = "id\n1\n😀\n"
+
+    assert CSVMapping().path_to_range(source, "") == (
+        0,
+        len(source.encode("utf-16-le")) // 2,
+    )
+
+
 def test_csv_path_to_range_preserves_bom_offsets_and_escaped_headers():
     source = '\ufeff"name","a""b"\nalpha,1\n'
     start = source.index('"a""b"')

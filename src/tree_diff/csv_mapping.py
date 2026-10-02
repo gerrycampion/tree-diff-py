@@ -138,7 +138,7 @@ class CSVMapping(TreeMapping):
 
     def _path_to_range(self, source: str, path: str) -> SourceRange | None:
         if not path:
-            return None
+            return 0, len(source)
         records = _csv_records(source)
         if not records:
             return None
