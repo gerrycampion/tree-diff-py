@@ -3,7 +3,7 @@ from collections.abc import Iterable
 from logging import getLogger
 from typing import Any
 
-from tree_diff.base_list_matcher import BaseListMatcher
+from tree_diff.list_matcher.base_list_matcher import BaseListMatcher
 
 logger = getLogger(__name__)
 

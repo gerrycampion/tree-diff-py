@@ -8,16 +8,16 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from tree_diff import (  # noqa: E402
+    CSVMapping,  # noqa: E402
+    JSONMapping,  # noqa: E402
     NgramListMatcher,
     TreeMappingFactory,
+    XMLMapping,  # noqa: E402
     diff_csv,
     diff_files,
     diff_json,
     diff_xml,
 )
-from tree_diff.csv_mapping import CSVMapping  # noqa: E402
-from tree_diff.json_mapping import JSONMapping  # noqa: E402
-from tree_diff.xml_mapping import XMLMapping  # noqa: E402
 
 SAMPLES_DIR = ROOT / "samples"
 

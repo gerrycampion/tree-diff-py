@@ -3,7 +3,7 @@ from io import StringIO
 from pathlib import Path
 from typing import Any
 
-from tree_diff.tree import SourceRange, TreeMapping, TreeNode
+from tree_diff.format_mappings.tree import SourceRange, TreeMapping, TreeNode
 
 
 def _escape_path_segment(segment: str) -> str:

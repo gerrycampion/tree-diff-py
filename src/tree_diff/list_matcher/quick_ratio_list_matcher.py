@@ -3,8 +3,8 @@ from difflib import SequenceMatcher
 from itertools import product
 from typing import Any
 
-from tree_diff.base_list_matcher import BaseListMatcher
-from tree_diff.each_deep import each_deep
+from tree_diff import each_deep
+from tree_diff.list_matcher.base_list_matcher import BaseListMatcher
 
 
 def _post_order_list(tree: Any) -> list[dict[str, Any]]:

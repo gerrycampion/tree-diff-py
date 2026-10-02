@@ -4,9 +4,7 @@ from json import dumps
 from os.path import join
 from typing import Any
 
-from tree_diff.diff_formats import diff_files
-from tree_diff.ngram_list_matcher import NgramListMatcher
-from tree_diff.report import save_to_file
+from tree_diff import NgramListMatcher, diff_files, save_to_file
 
 base_filename: str = os.environ.get("BASE_FILENAME", "")
 compare_filename: str = os.environ.get("COMPARE_FILENAME", "")

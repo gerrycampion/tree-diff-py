@@ -3,8 +3,8 @@ from json import dumps
 from logging import getLogger
 from typing import Any
 
-from tree_diff.base_list_matcher import BaseListMatcher
-from tree_diff.tree import TreeMapping, TreeNode
+from tree_diff.format_mappings.tree import TreeMapping, TreeNode
+from tree_diff.list_matcher.base_list_matcher import BaseListMatcher
 
 logger = getLogger(__name__)
 

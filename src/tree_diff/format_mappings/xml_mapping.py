@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any
 from xml.etree import ElementTree
 
-from tree_diff.tree import SourceRange, TreeMapping, TreeNode
+from tree_diff.format_mappings.tree import SourceRange, TreeMapping, TreeNode
 
 
 def _xml_markup_end(source: str, start: int) -> int:
